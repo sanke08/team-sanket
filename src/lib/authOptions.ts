@@ -2,8 +2,8 @@
 
 import GoogleProvider from "next-auth/providers/google"
 import { AuthOptions, User } from "next-auth"
-import { db } from "@/lib/db"
 import { AdapterUser } from "next-auth/adapters"
+import { db } from "./prisma"
 
 
 
@@ -36,6 +36,7 @@ export const authOption: AuthOptions = {
                 }
                 return true
             } catch (error) {
+                console.log(error)
                 return false
             }
 
