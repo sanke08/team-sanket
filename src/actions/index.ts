@@ -141,7 +141,7 @@ export async function logout() {
 
 
 export const getMessage = async (messages: any, input: string) => {
-    const genAI = new GoogleGenerativeAI("AIzaSyBjGX8NjJFua1YKn4mn1SLJR1UuyFTxNTg");
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI!);
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     const generationConfig = {
