@@ -26,6 +26,7 @@ export default function RegisterPage() {
     const onSubmit = async (data: any) => {
         setLoading(true);
         const formData = new FormData();
+        // @ts-ignore
         Object.entries(data).forEach(([key, value]) => formData.append(key, value));
 
         const result = await registerdata(formData);

@@ -33,7 +33,6 @@ export async function registerdata(formData: FormData) {
 
         return { success: "User registered successfully" };
     } catch (error: any) {
-        console.log(error)
         return { error: error.message };
     }
 }
@@ -65,7 +64,6 @@ export async function login(formData: FormData) {
 
         return { success: "Login successful", token };
     } catch (error: any) {
-        console.log(error)
         return { error: error.message };
     }
 }
@@ -112,7 +110,6 @@ export async function registerDomain(data: any) {
 
     try {
         const user = await getUser()
-        console.log(user)
         if (!user) return { success: false }
         const newDomain = await db.domain.create({
             data: {
@@ -137,7 +134,6 @@ export async function logout() {
         (await cookies()).delete("token");
         return { success: "Logged out successfully" };
     } catch (error: any) {
-        console.log(error);
         return { error: "An error occurred during logout" };
     }
 }
