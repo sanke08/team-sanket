@@ -1,9 +1,8 @@
+import Bot from "@/components/bot/Bot"
 
 const page = () => {
     return (
-        <div>
-
-        </div>
+        <Bot />
     )
 }
 

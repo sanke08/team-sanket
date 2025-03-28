@@ -5,9 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { login } from "@/actions";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
     const [loading, setLoading] = useState(false);
+
+    const router = useRouter()
 
     const onSubmit = async (e: any) => {
         e.preventDefault();
@@ -20,7 +23,10 @@ export default function LoginPage() {
         if (result.error) {
             toast(result.error)
         } else {
+            router.refresh()
+            router.push("/domain")
             document.cookie = `token=${result.token}; path=/;`;
+
             toast("Logged in successfully!");
         }
     };

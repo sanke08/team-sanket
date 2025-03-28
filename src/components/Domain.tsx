@@ -10,7 +10,7 @@ import { registerDomain } from "@/actions";
 import { toast } from "sonner";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function DomainPage() {
+export default function Domain() {
     const { register, handleSubmit } = useForm();
     const router = useRouter();
     const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ export default function DomainPage() {
 
         if (response.success) {
             toast("Domain registered successfully!");
-            router.push("/dashboard"); // Redirect on success
+            router.refresh()
         } else {
             toast("something went wrong");
         }

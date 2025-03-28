@@ -1,31 +1,15 @@
-import Providers from "@/components/Providers";
-import "./globals.css";
-import { ThemeProvider } from "next-themes";
-import { Toaster } from "@/components/ui/sonner";
+import { ReactNode } from "react"
 
+import "./globals.css"
 
-
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body>
-        <Providers>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            disableTransitionOnChange
-          >
-            {children}
-            <Toaster />
-          </ThemeProvider>
-
-        </Providers>
-      </body>
-    </html>
-  );
+const layout = ({ children }: { children: ReactNode }) => {
+    return (
+        <html lang="en">
+            <body>
+                {children}
+            </body>
+        </html>
+    )
 }
+
+export default layout
